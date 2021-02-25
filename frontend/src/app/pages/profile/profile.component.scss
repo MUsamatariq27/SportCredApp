@@ -1,0 +1,101 @@
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile {
+    margin-top: 250px;
+    .profile-header {
+        display:flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: -100px;
+        .button-controls {
+            margin-top: 10px;
+            width: 100%;
+            margin-left: 10px;
+            margin-right: 10px;
+            justify-content: space-between;
+        }
+        img {
+            margin-top: -20px;
+            margin-bottom: 1vw;
+            width: 20vw;
+            min-width: 200px;
+            min-height: 200px;
+            height: 20vw;
+            max-width: 250px;
+            max-height: 250px;
+            border-radius: 100vw;
+        }
+        > div {
+            width: calc(100% - 250px);
+            min-width: min(700px, 100%);
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .display-name {
+            min-width: 500px;
+            h5 {
+                margin-top: min(3vw, 20px);
+                font-size: 40px;
+                font-weight: bold;
+            }
+            overflow: hidden;
+            display: flex;
+            flex-flow: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .acs {
+            margin-top: max(-2vw, -200px );
+            padding:10px;
+            font-size: 40px;
+            border-radius: 20px;
+            color: white;
+        }
+    }
+    .profile-form {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        > div {
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            width: calc(100% - 20px);
+            label {
+                width: 75%;
+                font-size: 20px;
+                text-indent: 20px;
+                font-weight: bolder;
+            }
+        }
+        textarea {
+            resize: none;
+            font-size: 20px;
+        }
+    }
+    .friends-list {
+        height: fit-content;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
+        > div {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            i { font-size: 100px;}
+        }
+        padding-bottom: 20px;
+    }
+    margin-bottom: 40px;
+}

@@ -1,0 +1,230 @@
+// Layout.scss is primarily for auth/layout
+//Custom variables
+$shadow1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+$shadow2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$shadow3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+$shadow4: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+$shadow5: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+$font-color: rgb(54,54,54) !default;
+$border-color: rgba(255,0,0,1) !default; 
+
+body.notDarkmode {
+
+    .wrapper {
+        position: absolute;
+        top:0px;
+        height: 0px;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        .navbar {
+            width: 100vw;
+            height: 75px;
+            background-color: $default-dark;
+            box-shadow: $shadow3;
+            > * > *, button {
+                color: $font-color-dark;
+                &:hover { color: $primary-dark; }
+            }
+            .navigation a { height: 75px; }
+            a:hover { background-color: $default-dark; color: $primary-dark; }
+            a.active {  background-color: $default-dark; color: $primary-dark; border: $primary-dark;  }
+
+        }
+        .sidebar-fill {
+            position: fixed;
+            top: 0px;
+            left:0px;
+            width: 100vw;
+            height: 100vh;
+            z-index: 20;
+            background-color: rgba(0,0,0,0.5);
+            display: none;
+            &.show {
+                display: flex;
+            }
+        }
+        .sidebar {
+            position: fixed;
+            top:0px;
+            right: 0px;
+            width: 0px;
+            height: 100vh;
+            background: $default-dark;
+            z-index: 30;
+            box-shadow: $shadow4;
+            white-space: nowrap;
+            overflow: hidden;
+            -webkit-transition: width 0.2s ease-in-out;
+            -moz-transition: width 0.2s ease-in-out;
+            -ms-transition: width 0.2s ease-in-out;
+            -o-transition: width 0.2s ease-in-out;
+                transition: width 0.2s ease-in-out;
+            &.show {
+                width: 350px;
+                -moz-transition: width 0.2s ease-in-out;
+                -ms-transition: width 0.2s ease-in-out;
+                -o-transition: width 0.2s ease-in-out;
+                    transition: width 0.2s ease-in-out;
+            }
+            > * > *, button {
+                color: $font-color-dark;
+                &:hover { color: $primary-dark; }
+            }
+            a:hover { background-color: $default-dark; color: $primary-dark; }
+            a.active {  background-color: $default-dark; color: $primary-dark; border: $primary-dark;  }
+
+        }
+        .navigation a {
+            background-color: $default-dark;
+            &.active { background-color: $default-dark; color: $primary-dark; border: $primary-dark; }
+        }
+        .page-container {
+            width: 100vw;
+            height: calc(100vh - 75px);
+            overflow-x: hidden;
+            overflow-y: auto;
+            background-color: $default-dark;
+            .page {
+                min-height: 100%;
+                height: fit-content;
+                background-image: url('../images/chuttersnap-UW76DKVVo-Q-unsplash.jpg');
+                background-size: cover;
+            }
+        }
+        .card {
+            background-color: $default-dark;
+            color: $font-color-dark;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: $primary-dark;
+        }
+        input, textarea {
+            &:focus {
+                background-color: $secondary-dark;
+                color: $font-color-dark;
+            }
+            background-color: $secondary-dark;
+            color: $font-color-dark;
+            border-color: $secondary-dark;   
+        }
+        .faded-border {
+            border-color: $border-color;
+        }
+        .selection {
+            i:hover { 
+                cursor: pointer;
+                color: $primary-dark;
+            }
+            i.selected {
+                color: $primary-dark;
+            }
+        }
+        .clickable:hover {
+            cursor: pointer;
+            color: $primary-dark;
+        }
+        .selectableText {
+            span {
+                color: $primary-dark;
+                font-weight: bold;
+            }
+            span:hover {
+                cursor: pointer;
+                color: $primary-dark;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .page {
+        .card {
+            background-color: $default-dark;
+            color: $font-color-dark;
+        }
+        .faded-border {
+            border-color: $border-color;
+        }
+        input, textarea {
+            &:focus {
+                background-color: $secondary-dark;
+                color: $font-color-dark;
+                border-color: $primary-dark;   
+            }
+            background-color: $secondary-dark;
+            color: $font-color-dark;
+            border-color: $secondary-dark;   
+            &:disabled {
+                background-color: $secondary-dark;
+                color: $font-color-dark;
+            }
+        }
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active  {
+        -webkit-text-fill-color: $font-color-dark;
+        -webkit-box-shadow: 0 0 0 30px $secondary inset !important;
+    }
+
+    .modal-card {
+        background-color: $default-dark;
+        color: $font-color-dark;
+        border: 1px solid $border-color;
+        box-shadow: $shadow5;
+        input, textarea {
+            &:focus {
+                background-color: $secondary-dark;
+                color: $font-color-dark;
+                border-color: $primary-dark;   
+            }
+            background-color: $secondary-dark;
+            color: $font-color-dark;
+            border-color: $secondary-dark;   
+            &:disabled {
+                background-color: $secondary-dark;
+                color: $font-color-dark;
+            }
+        }
+        > .modal-header {
+            border-color: $border-color !important;
+            .modal-title, button > span { color: $font-color-dark !important; }
+        }
+    }
+    .color-sec {
+        color: $font-color-dark !important;
+    }
+
+    .pick {
+        max-width: 1250px;
+        min-width: 875px;
+        background-color: $default-dark;
+        h3 {
+            font-size: 22px;
+            color: $font-color-dark !important;
+        }
+        p {
+            color: $font-color-dark;
+            > span {
+                color: $primary-dark;
+            }
+        }
+        button {
+            &:disabled {
+                background-color: $secondary-dark;
+            }
+            &.chosen {
+                background: $success;
+                border-color: $success;
+            }
+        }
+    }
+    .darkmode-label {
+        color: $font-color-dark;
+    }
+
+
+}

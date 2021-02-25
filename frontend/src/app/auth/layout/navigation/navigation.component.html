@@ -1,0 +1,47 @@
+<div class="navbar">
+    <div class="title">
+        <a [routerLink]="['/']">
+            <img src="{{getSource()}}">
+        </a>
+        <h2>{{getTitle()}}</h2>
+    </div>
+
+    <div class="navigation d-none d-xl-flex">
+        <a *ngFor="let route of getNavRoutes()" [routerLink]="[route.path]" [class.active]="isCurrentPath(route.path)">{{route.title}}</a>
+    </div>
+
+    <div class="controls d-none d-xl-flex">
+        <a [routerLink]="['/profile']" title="Profile" [class.active]="isCurrentPath('/profile')">
+            <i class="fas fa-user-circle"></i>
+            <div class="login-text">{{user.firstName}} {{user.lastName}}</div>
+        </a>
+        <div>
+            <button class="btn btn-icon btn-link" (click)="logout()" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
+            <button class="btn btn-icon btn-link" (click)="openSettings()" title="Settings"><i class="fas fa-cog"></i></button>
+        </div>
+    </div>
+
+    <div class="controls d-flex d-xl-none">
+        <div >
+            <button (click)="toggleSidebar()" class="btn btn-icon btn-link" title="Logout"><i class="fas fa-bars"></i></button>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar-fill" (click)="toggleSidebar()" [class.show]="sidebarOpen"></div>
+<div class="sidebar" [class.show]="sidebarOpen">
+    <div class="profile">
+        <a class (click)="toggleSidebar()" [routerLink]="['/profile']" [class.active]="isCurrentPath('/profile')">
+            <i class="fas fa-user-circle"></i>
+            <div class="login-text">{{user.firstName}} {{user.lastName}}</div>
+        </a>
+    </div>
+    <div class="controls">
+        <button class="btn btn-icon btn-link" (click)="logout()" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
+        <button class="btn btn-icon btn-link" (click)="openSettings()" title="Settings"><i class="fas fa-cog"></i></button>
+    </div>
+    <div class="navigation">
+        <a *ngFor="let route of getNavRoutes()" (click)="toggleSidebar()" [routerLink]="[route.path]" [class.active]="isCurrentPath(route.path)">{{route.title}}</a>
+    </div>    
+
+</div>

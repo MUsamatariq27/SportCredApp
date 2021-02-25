@@ -1,0 +1,22 @@
+<div class="modal-card">
+    <div class="modal-header">
+        <h4 class="modal-title">Settings</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <h5 class="darkmode-label">Darkmode</h5>
+            <label class="custom-toggle">
+                <input [(ngModel)]="darkmode" type="checkbox" checked>
+                <span class="custom-toggle-slider rounded-circle"></span>
+            </label>
+        </div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Close click')">Close</button>
+        <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+    </div>
+
+</div>

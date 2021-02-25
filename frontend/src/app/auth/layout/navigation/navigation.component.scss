@@ -1,0 +1,114 @@
+
+// Refer to assets/scss/layout.scss for size and color control.
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 20px;
+    > div {
+        display: flex;
+    }
+    .title {
+        width: 300px;
+        max-width: 300px;
+        max-height: 75px;
+        overflow-x: visible;
+        img {
+            width: 85px;
+            height: 75px;
+        }
+        h2 {
+            margin-top:18px;
+            font-size: 24px;
+            margin-left: 20px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+    }
+
+    .navigation a {
+        display: flex;
+        justify-content: center;
+        width: 9vw;
+        font-size: 18px;
+        text-align: center;
+        &.active { 
+            border-bottom: 3px solid;
+        }
+    }
+
+    .controls {
+        > div {
+            margin-left: 20px;
+        }
+        i {
+            font-size: 35px;
+            margin: 5px;
+        }
+        button {
+            margin-left: 0px;
+            margin-right: 0px;
+            padding:0px;
+        }
+    }
+    a {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.sidebar {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    > div {
+        width: 100%;
+    }
+    .profile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        height: 150px;
+        a { 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            i { font-size: 100px;}
+            > div { font-size: 28px; }
+            
+        }
+    }
+    .controls {
+        width: 75%;
+        display: flex;
+        justify-content: space-around;
+        i {
+            font-size: 35px
+        }
+        padding-bottom: 10px;
+        border-bottom: 1px solid grey;
+    }
+    .navigation {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        width: 100%;
+        > a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 75px;
+            font-size: 20px;
+            &.active { 
+                border-left: 5px solid;
+            }
+        }
+        text-align: center;
+    }
+}

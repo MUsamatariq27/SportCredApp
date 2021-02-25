@@ -1,0 +1,38 @@
+<div class="page">
+ 
+    <div class="card col-xl-10 col-sm-12">
+        <div class="header">
+            <i (click)="sort()" class="fas clickable" [class.fa-sort-amount-down]="sortDirection === 1" [class.fa-sort-amount-up]="sortDirection === -1"></i>
+            <input (input)="searchInput($event)" type="text" placeholder="Search" class="form-control">
+        </div>
+        <div class="posts">
+            <div *ngFor="let post of posts" (click)="openPost(post.postId)"  class="post faded-border">
+                <div> <!-- Post Content -->
+                    <h5>{{post.title}}</h5>
+                    <p>{{post.description}}</p>
+                    <div>
+                        <div><i class="fas fa-user-circle"></i>{{post.email}}</div>
+                        <div><!--<i class="fas fa-calendar-alt"></i>{{post.datePosted.toLocaleString()}}--></div>
+                    </div>
+                </div>
+                <div class="selection"> <!-- Votes -->
+                    <i (click)="vote(post.postId, 1);$event.stopPropagation()" class="fas fa-chevron-up" [class.selected]="post.currentUserVote === 1"></i>
+                    <span>{{post.postScore}}</span>
+                    <i (click)="vote(post.postId, -1);$event.stopPropagation()" class="fas fa-chevron-down" [class.selected]="post.currentUserVote === -1"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <button (click)="createPost()" class="btn btn-primary">Create Post</button>
+            <!--
+            <ul class="pagination">
+                <li class="page-item active"><span class="page-link">1</span></li>
+                <li class="page-item"><span class="page-link">2</span></li>
+                <li class="page-item"><span class="page-link">3</span></li>
+                <li class="page-item"><span class="page-link">4</span></li>
+                <li class="page-item"><span class="page-link">5</span></li>
+            </ul>-->
+        </div>
+    </div>
+
+</div>

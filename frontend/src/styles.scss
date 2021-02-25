@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'src/assets/scss/color-override.scss';
+@import 'src/assets/scss/argon.scss';
+@import 'src/assets/scss/layout.scss';
+@import 'src/assets/scss/layout-darkmode.scss';
+
+body {
+    min-width: 800px;
+}

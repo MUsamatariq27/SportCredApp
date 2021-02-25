@@ -1,0 +1,29 @@
+<div class="page">
+    <div *ngFor="let date of dateGroups">
+        <h3 class="color-sec">{{date}}</h3>
+        <div class="pick col-sm-12 col-lg-11 col-xl-9" *ngFor="let pick of getGroup(date); let i = index">
+            <div class="half">
+                <img src="{{'/assets/images/logos/' + pick.sideA + '.png'}}">
+                <div>
+                    <div><h3>{{pick.sideA}}</h3><div></div></div>
+                    <div>
+                        <p>Total Votes: <span>{{pick.aVotes}}</span></p>
+                        <button  (click)="vote(date, i, 'A')" [disabled]="pick.userChoice !== ''" [class.chosen]="pick.userChoice === 'A'" class="btn btn-sm btn-primary">Vote</button>
+                    </div>
+                </div>
+            </div>
+            <div class="versus"><p>vs</p></div>
+            <div class="half">
+                <div>
+                    <div><div></div><h3>{{pick.sideB}}</h3></div>
+
+                    <div>
+                        <button (click)="vote(date, i, 'B')" [disabled]="pick.userChoice !== ''" [class.chosen]="pick.userChoice === 'B'" class="btn btn-sm btn-primary">Vote</button>
+                        <p>Total Votes: <span>{{pick.bVotes}}</span></p>
+                    </div>
+                </div>
+                <img src="{{'/assets/images/logos/' + pick.sideB + '.png'}}">
+            </div>
+        </div>
+    </div>
+</div>

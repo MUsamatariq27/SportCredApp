@@ -1,0 +1,32 @@
+<div class="page">
+
+    <div *ngIf="post" class="card col-xl-10 col-sm-12">
+        <div class="header">
+            <div><h1>{{post.title}}</h1></div>
+            <div>
+                <div class="clickable"><i class="fas fa-user-circle"></i>{{post.email}}</div>
+                <div><!--<i class="fas fa-calendar-alt"></i>{{post.datePosted.toLocaleString()}}--></div>
+            </div>
+        </div>
+        <div class="body">
+            <p>{{getFakeContent()}}</p>
+        </div>
+    </div>
+
+    <div class="card col-xl-10 col-sm-12">
+        <h2>Comments</h2>
+        <div class="new-comment">
+            <textarea [(ngModel)]="commentText" class="form-control" rows="3" placeholder="Post a comment..."></textarea>
+            <button (click)="postComment()" class="btn btn-primary">Post</button>
+        </div>
+        <div class="comments">
+            <div *ngFor="let comment of comments">
+                <img src="assets/images/default-user.png">
+                <div>
+                    <div class="faded-border"><h3 class="clickable">{{comment.author}}</h3><span>{{comment.datePosted.toLocaleString()}}</span></div>
+                    <div class="selectableText" [innerHTML]="parseContent(comment.content)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+{
+    "/addUser": {
+      "target": "http://localhost:8080",
+      "secure": false
+    },    "/getUser": {
+      "target": "http://localhost:8080",
+      "secure": false
+    },
+    "/removeUser": {
+      "target": "http://localhost:8080",
+      "secure": false
+    },
+    "/updateStatus": {
+      "target": "http://localhost:8080",
+      "secure": false
+    },
+    "/getStatus": {
+      "target": "http://localhost:8080",
+      "secure": false
+    },
+    "/makeAdmin": {
+      "target": "http://localhost:8080",
+      "secure": false
+    },
+    "/addPost": {
+      "target": "http://localhost:8080",
+      "secure": false
+    },
+    "/getPosts": {
+      "target": "http://localhost:8080",
+      "secure": false
+    },
+    "/agreePost": {
+      "target": "http://localhost:8080",
+      "secure": false
+    },
+    "/disagreePost": {
+      "target": "http://localhost:8080",
+      "secure": false
+    },
+    "/makeAdminTest": {
+      "target": "http://localhost:8080",
+      "secure": false
+    }
+
+}

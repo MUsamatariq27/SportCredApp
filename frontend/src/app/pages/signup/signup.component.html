@@ -1,0 +1,320 @@
+<div class="page">
+   
+    <div *ngIf="!form_valid" class="card col-xl-4 col-lg-6 col-md-7 col-sm-12"  >
+       
+        <div class="card-head" >
+           <img src="../../../assets//images/logo alt - transparent zoomed.png">
+        </div>
+
+        <div class="d_1"> Create Account </div> 
+        <div class ="d_2"> Fill in the fields below </div>
+        
+        <br>
+
+        <form [formGroup]="signup_form" (ngSubmit)="onSubmit()" class="form_css" >
+
+            <div class="form-group" >
+
+                <input type="text" formControlName="firstName"
+                placeholder="Enter First Name" class="form-control" />
+
+                <div class="error" *ngIf="f.firstName.invalid && submitted">
+
+                    <div class="error" *ngIf="f.firstName.errors.required && submitted">
+                        First Name is Required
+                    </div>
+                    <div class="error" *ngIf="f.firstName.errors.minlength && submitted">
+                        First Name should have a minimum length of 3 characters
+                    </div>
+                    <div class="error" *ngIf="f.firstName.errors.pattern && submitted">
+                         First Name should contain [a-z] [A-Z]
+                         
+                     </div>
+                    
+                </div>
+        
+            </div>
+
+            <div class="form-group" >
+
+                <input type="text" formControlName="lastName"
+                placeholder="Enter Last Name" class="form-control" />
+
+                <div class="error" *ngIf="f.lastName.invalid && submitted">
+
+                    <div class="error" *ngIf="f.lastName.errors.required && submitted">
+                        Last Name is Required
+                    </div>
+                    <div class="error" *ngIf="f.lastName.errors.minlength && submitted">
+                        Last Name should have minimum length of 3 characters
+                    </div>
+                    <div class="error" *ngIf="f.lastName.errors.pattern && submitted">
+                       Last Name should have [a-z] [A-Z]
+                        
+                    </div>
+                    
+                </div>
+        
+            </div>
+
+
+            <div class="form-group" >
+
+                <input type="text" formControlName="email"
+                placeholder="Enter Email" class="form-control" />
+
+                <div class="error" *ngIf="f.email.invalid && submitted">
+
+                    <div class="error" *ngIf="f.email.errors.required && submitted">
+                        Email is Required
+                    </div>
+
+                    <div class="error" *ngIf="f.email.errors.pattern && submitted">
+                        Please Enter a vaild email: example@mail.com
+                        
+                    </div>
+
+
+                </div>
+        
+            </div>
+
+
+
+            <div class="form-group" >
+
+                <input  type="password" formControlName="password"
+                placeholder="Enter Password" class="form-control" id="ch_input" />
+
+                <label  style="margin-right: 5px; margin-top: 5px; "> Show Password </label>
+
+                <input type="checkbox" (click)="myFunc()"/>
+
+                <div class="error" *ngIf="f.password.invalid && submitted">
+
+                    <div class="error" *ngIf="f.password.errors.required && submitted">
+                        Password is Required
+                    </div>
+                    <div class="error" *ngIf="f.password.errors.minlength && submitted">
+                        Username should have minimum length of 8 characters
+                    </div>
+                    <div class="error" *ngIf="f.password.errors.pattern && submitted">
+                        Must have : Upper & Case letters, numbers [0-9] 
+                        and Special characters [$@$!/%*?&]
+                        
+                    </div>
+
+                </div>
+        
+            </div>
+
+            <div class="form-group" >
+
+                <input type="password" formControlName="confirm_password"
+                placeholder="Confirm Password" class="form-control" id="ch_input_2" />
+
+                <label  style="margin-right: 5px; margin-top: 5px; "> Show Confirm Password </label>
+
+                <input type="checkbox" (click)="myFunc_2()"/>
+
+
+                <div class="error" *ngIf="f.confirm_password.invalid && submitted">
+
+                    <div class="error" *ngIf="f.confirm_password.errors.required && submitted">
+                        Please Re-enter password
+                    </div>
+
+                    <div class="error" *ngIf="f.confirm_password.errors.mustMatch">
+                        Should be same as Password
+                    </div>
+
+                </div>
+        
+            </div>
+
+
+            
+            <div class ="d_1"> Tell us a little more about yourself </div>
+
+            <div class="form-group" >
+
+                <input type="text" formControlName="age"
+                placeholder="Enter Age (Optional)" class="form-control" />
+
+                <div class="error" *ngIf="f.age.invalid && submitted">
+
+                    <div class="error" *ngIf="f.age.errors.required && submitted">
+                        Age is required
+                    </div>
+
+                    <div class="error" *ngIf="f.age.errors.ageRange && submitted">
+                        Age must be in numbers and between [10-90]
+                        
+                    </div>
+
+
+                </div>
+        
+            </div>
+
+
+            <div class="form-group">
+            
+                <select formControlName="favSport" class ="form-control" 
+                style="background-color: grey; border-color: grey; color:white; ">
+
+                    <option  class ="form-control" 
+                    value="" disabled selected>Select your highest level of play in sports (Optional)
+                    </option>
+                    
+                    <option value = "Basketball"
+                    style="background-color: grey; border-color: orange ; color:orange;" 
+                    class ="form-control">
+                        Basketball</option>
+                </select>
+            </div>
+
+
+
+            <div class="form-group" >
+
+                <select formControlName="favTeam" class ="form-control" 
+                style="background-color: grey; border-color: grey ; color: white; ">
+
+                    <option class ="form-control"
+                    value="" disabled selected> Select your favorite Team (Optional)
+                    </option>
+                    <option value = "Lakers"
+                    style="background-color: grey; border-color: grey; color: orange;" 
+                    class ="form-control">Los Angeles Lakers</option>
+
+                    <option value = "Celtics"
+                    style="background-color: grey; color: orange;" 
+                    class ="form-control">
+                        Boston Celtics</option>
+
+                    <option value = "Clippers"
+                    style="background-color: grey; color: orange;" 
+                    class ="form-control">
+                    Los Angeles Clippers</option>
+
+                    <option value = "Raptors"
+                    style="background-color: grey; color: orange;" 
+                    class ="form-control">
+                    Toronto Raptors</option>
+
+                    <option value = "Bucks"
+                    style="background-color: grey;  color: orange;" 
+                    class ="form-control">
+                    Milwaukee Bucks</option>
+
+                    <option value = "76ers"
+                    style="background-color: grey; color:orange;" 
+                    class ="form-control">
+                    Philadelphia 76ers</option>
+
+                    <option value = "Rockets"
+                    style="background-color: grey; color: orange;" 
+                    class ="form-control">
+                    Houston Rockets </option>
+
+                    <option value = "Warriors"
+                    style="background-color: grey; color: orange;" 
+                    class ="form-control">
+                    Golden State Warriors</option>
+                    
+                </select>
+        
+            </div>
+
+
+            <div class="form-group">
+            
+                <select formControlName="highestLvlPlay" class ="form-control" 
+                style="background-color: grey; border-color: grey ; color: white ">
+
+                    <option class ="form-control"
+                    value="" disabled selected>Select your highest level of play in sports (Optional)
+                    </option>
+                    <option value = "No history"
+                    style="background-color: grey;color:orange;" 
+                    class ="form-control">
+                        No history</option>
+                    <option value = "recreational"
+                    style="background-color: grey; color:orange;" 
+                    class ="form-control">
+                        Recreational</option>
+                    <option value = "Highschool"
+                    style="background-color: grey; color:orange;" 
+                    class ="form-control"> 
+                        Highschool</option>
+                    <option value = "University"
+                    style="background-color: grey; color:orange;" 
+                    class ="form-control">
+                        University</option>
+                    <option value = "professional"
+                    style="background-color: grey; color:orange;" 
+                    class ="form-control">
+                        Professional</option>
+                    
+                </select>
+
+            </div>
+
+
+
+
+
+            
+        <div class="form-footer">
+            <div class="custom-control custom-checkbox mb-3">
+                <input class="custom-control-input" id="customCheck1" type="checkbox" 
+                formControlName="accepterms">
+                <label class="custom-control-label" for="customCheck1">
+                  <span>I agree to be a respectful member of SPORTCRED.</span>
+                </label>
+                <div class="error" *ngIf="f.accepterms.invalid && submitted" >
+                    Please agree to the terms above
+                </div>
+
+            </div>
+           
+        
+            <button type="submit" class="btn btn-primary">
+                Create
+            </button> 
+        </div>
+
+
+            
+        </form>
+
+        <br> 
+
+        <div *ngIf="!form_valid" class="login-return">
+            <p *ngIf="!form_valid" >  &nbsp;
+                <a [routerLink] ="['/login']"><u>Already have an account? Login Instead!</u></a>
+            </p>
+        </div>        
+    </div>
+    
+    <div *ngIf="form_valid" class="registration-success card col-xl-4 col-lg-5 col-md-6 col-sm-8" role="alert">
+        <i class="fas fa-check text-success"></i>
+        
+        <div>
+            <h4 class="text-success">Registration Sucessful! </h4>
+            <p> Redirecting you to login... </p>
+        </div>
+    </div>
+
+    <div *ngIf="form_valid" class="registration-success card col-xl-4 col-lg-5 col-md-6 col-sm-8" role="alert">
+        <i class="fas fa-check text-fail"></i>
+        
+        <div>
+            <h4 class="text-success">Registration UnSucessful! The user already exists! </h4>
+            <p> Redirecting you to login... </p>
+        </div>
+    </div>
+
+
+</div>

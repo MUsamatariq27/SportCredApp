@@ -1,0 +1,45 @@
+<div class="page">
+
+    <div class="profile card col-sm-11 col-md-10 col-lg-9 col-xl-8">
+        <div class="profile-header">
+            <img src="../../../assets/images/markus-spiske-BfphcCvhl6E-unsplash.jpg">
+            <div>
+                <div class="display-name"><h5>{{user.firstName}} {{user.lastName}}</h5></div>
+                <div class="acs bg-success">200 ACS</div>
+            </div>
+            <div class="button-controls">
+                <div *ngIf="!user.isAdmin"></div>
+                <button class="btn btn-success" *ngIf="user.isAdmin">Make Admin</button>
+                <button class="btn btn-danger" *ngIf="user.isAdmin">Delete Account</button>
+                <button class="btn btn-primary" *ngIf="!editable" (click)="toggleEdit()">Edit</button>
+                <button class="btn btn-success" *ngIf="editable" (click)="save()">Save</button>
+            </div>
+        </div>
+        <div class="profile-form">
+            <div class="form-group">
+                <label>Status</label>
+                <textarea type="text"  [(ngModel)]="status" [disabled]="!editable" [placeholder]="editable? 'ex. I love SPORTCRED!!!!': ''" rows="6" class="form-control" ></textarea>
+            </div>
+            <div>
+                <label>Favorite Sport</label>
+                <input [(ngModel)]="user.favSport"  type="text" [disabled]="!editable" [placeholder]="editable? 'ex. Basketball' : ''" rows="6" class="form-control" /> 
+             </div>
+            <div>
+               <label>Favorite Team</label>
+               <input [(ngModel)]="user.favTeam" type="text" [disabled]="!editable" [placeholder]="editable? 'ex. Raptors':''" rows="6" class="form-control" /> 
+            </div>
+            <div>
+                <label>Highest Level of Play</label>
+                <input [(ngModel)]="user.highestLvlPlay"  type="text" [disabled]="!editable" [placeholder]="editable? 'ex. Raptors':''" rows="6" class="form-control" /> 
+             </div>
+            <div><label>My Friends</label></div>
+        </div>
+        <div class="friends-list">
+            <div *ngFor="let friend of friends;" class="btn">
+                <i class="fas fa-user-circle"></i>
+                {{friend.firstName}} {{friend.lastName}}
+            </div>
+        </div>
+    </div>
+    
+</div>

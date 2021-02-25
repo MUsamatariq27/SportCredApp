@@ -1,0 +1,20 @@
+<div class="page">
+    <div class="card col-xl-4 col-lg-6 col-md-7 col-sm-12">
+        <img src="{{getSource()}}">
+        <div class="error-message" *ngIf="loginFail">Email/Password was incorrect.</div>
+        <div class="form-group">
+            <input type="text" [(ngModel)]="username" placeholder="Email" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="password" [(ngModel)]="password"  placeholder="Password" class="form-control" />
+        </div>
+        <div>
+            <a href="#">Forgot Password?</a>
+            <button (click)="login()" class="btn btn-primary">Login</button>
+        </div>
+
+        <div class="divisor"><div></div>Or<div></div></div>
+
+        <a [routerLink]="['/signup']"><button class="btn btn-link">Sign Up</button></a>
+    </div>
+</div>

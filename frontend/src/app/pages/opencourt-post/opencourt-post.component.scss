@@ -1,0 +1,80 @@
+.page {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    > .card {
+        &:first-child { margin-top: max(100px, 15vh); }
+        &:nth-child(2) { margin-top: 20px; margin-bottom: 100px; }    
+        > .header {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            border-bottom: grey 1px solid;
+            > div {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                i { margin-right: 10px; }
+                &:nth-child(2) { width: 99%; margin-top: -10px; font-size: 20px; }
+            }
+        }
+        > .body {
+            margin-top: 20px;
+            width: calc(100% - 40px);
+            margin-left: auto;
+            margin-right: auto;
+            white-space: pre-wrap;
+            > p { font-size: 20px;}
+            padding-bottom: 30px;
+        }
+        > .new-comment {
+            display: flex;
+            height: 150px;
+            flex-flow: column;
+            justify-content: space-around;
+            align-items: flex-end;
+            > textarea { resize: none; overflow:hidden; }
+        }
+        > .comments {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            > div {
+                width: 98%;
+                min-height: 100px;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                > img {
+                    width: 75px;
+                    height: 75px;
+                    margin-right: 12px;
+                }
+                > div {
+                    width: calc(100% - 100px);
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    > div:first-child {
+                        h3 { margin-bottom: -8px; }
+                        span { margin-top: 12px;}
+                        display: flex;
+                        justify-content: space-between;
+                        width: 100%;
+                        border-bottom: 1px solid rgba(0,0,0,.2);
+                        margin-bottom: 5px;
+                    }
+                    > div:nth-child(2) {
+                        white-space: pre-wrap;
+                    }
+                }
+            }
+        }
+    }
+}

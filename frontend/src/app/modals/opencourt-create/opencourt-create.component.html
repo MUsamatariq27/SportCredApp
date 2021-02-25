@@ -1,0 +1,23 @@
+<div class="modal-card">
+    <div class="modal-header">
+        <h4 class="modal-title">New Post</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <label>Title</label>
+            <input [(ngModel)]="title" type="text" placeholder="" rows="6" class="form-control" /> 
+            </div> 
+        <div class="form-group">
+            <label>Content</label>
+            <textarea [(ngModel)]="content"  type="text" placeholder="" rows="12" class="form-control" ></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Close click')">Close</button>
+        <button type="button" class="btn btn-primary" (click)="post()">Post</button>
+    </div>
+
+</div>
